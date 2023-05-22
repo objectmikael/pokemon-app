@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Favorite Pok&#xE9mon</title>
+</head>
+<body>
+    <h1 id="titleHomepage">Favorite Pok&#xE9mon</h1>
+    
+    <br><br>
+    
+    <div id="btn">  
+        <a href="/pokemonListHomepage"><button>Back to Homepage</button></a>
+    </div> 
+    <br><br>
+    <div id="cardContainer">
+        <ul>
+            <% for (let i=0; i<favoritePokemon.length; i++) { %>
+                <div id="pokemonCard">  
+                    <div id="cardHeader">
+                        <li><strong> 
+                            <%=favoritePokemon[i].name.charAt(0).toUpperCase() + favoritePokemon[i].name.slice(1)%>
+                        </strong></li>
+                        <li id="hp"><strong><%= favoritePokemon[i].level %> HP</strong></li>    
+                    </div>
+                    <div id="pic">
+                        <a href="/pokemon/<%=favoritePokemon[i]._id%>"><img src="<%=favoritePokemon[i].image%>" alt=""></a>
+                    </div>
+                    <div id="abilityContainer">
+                        <p id="cardAbility"><strong>Ability</strong> <br> <%= favoritePokemon[i].ability %> </p> 
+                    </div>
+                </div> 
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

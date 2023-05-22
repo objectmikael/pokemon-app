@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Pokemon</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1 id="titleUpdate">Update Pok&#xE9mon Details</h1>
+    <h3>Pok&#xE9mon:</h3>
+    <p><strong>ID:</strong> <%=pokemon._id %>  &nbsp;&nbsp;&nbsp;  
+        <strong>Name:</strong> <%=pokemon.name %>  &nbsp;&nbsp;&nbsp; 
+        <strong>Ability:</strong> <%=pokemon.ability %> &nbsp;&nbsp;&nbsp; 
+        <strong>Level:</strong> <%=pokemon.level %>
+    </p>
+
+    <form action="/updateHomepage/<%=pokemon._id%>" method="post">
+        <input name="pokemon" id="pokemon" type="text" value="<%=pokemon.name%>">
+        <input name="ability" id="ability" type="text" value="<%=pokemon.ability%>">
+        <input name="level" id="level" type="number" value="<%=pokemon.level%>">
+        <input name="image" id="image" type="text" placeholder="Image Link">
+        <label for="isFavorite">Add to favorites?</label>
+        <input name="isFavorite" id="isFavorite" type="checkbox">
+        <button type="submit">Update</button>
+    
+    </form>
+</body>
+</html>

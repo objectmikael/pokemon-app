@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Details</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1 id="titleDetails">Pok&#xE9mon Details</h1>
+    <br>
+    <p> 
+        <strong>Name:</strong> <%=apiData.name %>  &nbsp;&nbsp;&nbsp; 
+        <strong>Ability:</strong> <%=apiData.abilities[0].ability.name %> &nbsp;&nbsp;&nbsp; 
+        <strong>Level:</strong> <%=apiData.base_experience %>
+    </p>
+
+    <img src="<%= apiData.sprites.other['official-artwork'].front_default%>" alt="">
+
+    <br><br>
+    <form action="/addToFavorites/<%=apiData.name %>" method="post">
+        <button>Add to Favorites</button>
+    </form>
+    <a href="/pokemonListHomepage"><button>Back to Homepage</button></a>
+    
+    <!-- <form action="/updatePokemon/%=pokemonDetails._id%>">
+        <button>Update Pok&#xE9mon</button>
+    </form>
+    <br>
+    <form action="/deletePokemon/%=pokemonDetails._id%>?_method=DELETE"  method="POST">
+        <button>Delete Pok&#xE9mon</button>
+    </form> -->
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Pokemon</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1 id="titleCreate">Create a New Pok&#xE9mon</h1>
+    <form method="post" action="/newPokemon">
+        <input name="newPokemon" id="newPokemon" type="text" list="pokemons" value="Name">
+        <datalist id="pokemons">
+            <%for (let i=0; i<apiData.results.length; i++) {%>
+                <option value="<%=apiData.results[i].name%>"></option>
+            <%}%>
+        </datalist>
+        <input name="ability" id="ability" type="text" placeholder="Ability">
+
+        <input name="level" id="level" type="number" placeholder="Level">
+
+        <input name="image" id="image" type="text" placeholder="Image link">
+
+        <label for="isFavorite">Add to favorites?</label>
+        <input name="isFavorite" id="isFavorite" type="checkbox">
+
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

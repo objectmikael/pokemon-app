@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Homepage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1 id="titleHomepage">Pok&#xE9mon Collection</h1>
+    
+    <br><br>
+    
+    <div id="btn">  
+        <a href="/generatePokemon"><button>Generate Pok&#xE9mon</button></a>
+        <form action="/searchPokemon" method="post">
+            <input name="pokemonQuery" id="pokemonQuery" type="text" list="pokemonApi">
+            <datalist id="pokemonApi">
+                <%for (let i=0; i<apiData.results.length; i++) {%>
+                    <option value="<%=apiData.results[i].name%>"></option>
+                <%}%>
+            </datalist>
+            <button type="submit">Search for a Pok&#xE9mon</button>
+        </form>
+        <a href="/favoritePokemon"><button>View Your Favorite Pok&#xE9mon</button></a>
+        <a href="/createNewPokemon"><button>Customize Your Own Pok&#xE9mon</button></a>
+    </div> 
+    <br><br>
+    <div id="cardContainer">
+        <ul>
+            <% for (let i=0; i<pokemonListArray.length; i++) { %>
+                <div id="pokemonCard">  
+                    <div id="cardHeader">
+                        <li><strong> 
+                            <%=pokemonListArray[i].name.charAt(0).toUpperCase() + pokemonListArray[i].name.slice(1)%>
+                        </strong></li>
+                        <li id="hp"><strong><%= pokemonListArray[i].level %> HP</strong></li>    
+                    </div>
+                    <div id="pic">
+                        <a href="/pokemon/<%=pokemonListArray[i]._id%>"><img src="<%=pokemonListArray[i].image%>" alt=""></a>
+                    </div>
+                    <div id="abilityContainer">
+                        <p id="cardAbility"><strong>Ability</strong> <br> <%= pokemonListArray[i].ability %> </p> 
+                    </div>
+                </div> 
+            <% } %>
+        </ul>
+    </div>
+
+
+
+</body>
+</html>
